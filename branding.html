@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Branding — ServiceFlow White-Label Docs</title>
+  <style>
+    :root { --bg: #0f1419; --panel: #1a2332; --text: #e7ecf3; --muted: #9aa8bc; --accent: #3b82f6; --border: #2a3548; }
+    body { margin: 0; font-family: ui-sans-serif, system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.55; }
+    header { border-bottom: 1px solid var(--border); padding: 1.25rem 1.5rem; background: var(--panel); }
+    header a { color: var(--accent); text-decoration: none; margin-right: 1rem; }
+    main { max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+    p, li { color: var(--muted); }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    th, td { border: 1px solid var(--border); padding: 0.55rem 0.7rem; text-align: left; }
+    th { background: var(--panel); }
+    code { background: var(--panel); padding: 0.1rem 0.35rem; border-radius: 4px; }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>ServiceFlow White-Label</strong>
+    <nav style="margin-top:0.5rem">
+      <a href="./">Overview</a>
+      <a href="./branding.html">Branding</a>
+      <a href="./deployment.html">Deployment</a>
+      <a href="./operator-setup.html">Operator setup</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Branding</h1>
+    <p>White-label branding is driven by environment variables (set per Cloud Run service / Secret Manager).</p>
+    <table>
+      <thead><tr><th>Key</th><th>Used by</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><code>APP_NAME</code></td><td>Web shell title, emails</td><td>Customer product name</td></tr>
+        <tr><td><code>PRIMARY_COLOR</code></td><td>CSS <code>--brand-primary</code></td><td>Hex</td></tr>
+        <tr><td><code>LOGO_URL</code></td><td>Nav / login</td><td>HTTPS URL</td></tr>
+        <tr><td><code>CUSTOM_DOMAIN</code></td><td>Prod redirects, cookies</td><td>Apex or www</td></tr>
+        <tr><td><code>DEV_CUSTOM_DOMAIN</code></td><td>Dev environment</td><td>Usually <code>dev.{CUSTOM_DOMAIN}</code></td></tr>
+        <tr><td><code>API_BASE_URL</code></td><td>Public API origin</td><td></td></tr>
+        <tr><td><code>WEB_BASE_URL</code></td><td>Public web origin</td><td></td></tr>
+      </tbody>
+    </table>
+    <p>Do not commit customer logos or secrets into source. Agents should update CSS tokens and copy, not bake secrets into the repo.</p>
+  </main>
+</body>
+</html>

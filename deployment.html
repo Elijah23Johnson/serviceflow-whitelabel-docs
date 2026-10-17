@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Deployment — ServiceFlow White-Label Docs</title>
+  <style>
+    :root { --bg: #0f1419; --panel: #1a2332; --text: #e7ecf3; --muted: #9aa8bc; --accent: #3b82f6; --border: #2a3548; }
+    body { margin: 0; font-family: ui-sans-serif, system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.55; }
+    header { border-bottom: 1px solid var(--border); padding: 1.25rem 1.5rem; background: var(--panel); }
+    header a { color: var(--accent); text-decoration: none; margin-right: 1rem; }
+    main { max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+    p, li { color: var(--muted); }
+    h2 { border-bottom: 1px solid var(--border); padding-bottom: 0.35rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    th, td { border: 1px solid var(--border); padding: 0.55rem 0.7rem; text-align: left; }
+    th { background: var(--panel); }
+    code { background: var(--panel); padding: 0.1rem 0.35rem; border-radius: 4px; }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>ServiceFlow White-Label</strong>
+    <nav style="margin-top:0.5rem">
+      <a href="./">Overview</a>
+      <a href="./branding.html">Branding</a>
+      <a href="./deployment.html">Deployment</a>
+      <a href="./operator-setup.html">Operator setup</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Deployment</h1>
+    <h2>Workflows</h2>
+    <ul>
+      <li><strong>Dev:</strong> <code>deploy-dev.yml</code> runs on push to <code>develop</code>.</li>
+      <li><strong>Prod:</strong> <code>deploy-prod.yml</code> runs on push to <code>master</code>.</li>
+    </ul>
+    <p>Both deploy <code>web</code> and <code>api</code> images to Cloud Run. Service names are derived from the tenant repo name:</p>
+    <ul>
+      <li><code>{REPO_NAME}-web-dev</code> / <code>{REPO_NAME}-api-dev</code></li>
+      <li><code>{REPO_NAME}-web</code> / <code>{REPO_NAME}-api</code></li>
+    </ul>
+    <h2>Domain mapping</h2>
+    <ol>
+      <li>Point <code>CUSTOM_DOMAIN</code> CNAME/A to Cloud Run domain mapping for the prod web service.</li>
+      <li>Point <code>DEV_CUSTOM_DOMAIN</code> to the dev web service.</li>
+      <li>Store the live URLs in AI Change Platform so the studio can show them after promote.</li>
+    </ol>
+    <h2>Required GitHub Actions secrets</h2>
+    <table>
+      <thead><tr><th>Secret</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td><code>GCP_SA_KEY</code></td><td>Deploy service account JSON</td></tr>
+        <tr><td><code>GCP_PROJECT_ID</code></td><td>GCP project</td></tr>
+        <tr><td><code>DATABASE_URL_DEV</code> / <code>DATABASE_URL_PROD</code></td><td>Tenant databases</td></tr>
+        <tr><td><code>SESSION_SECRET</code></td><td>Session signing</td></tr>
+      </tbody>
+    </table>
+    <h2>AI Change Platform contract</h2>
+    <p>The platform watches <code>deploy-dev.yml</code> after merge to <code>develop</code>, then <code>deploy-prod.yml</code> after promote <code>develop → master</code>. Keep those workflow file names unchanged.</p>
+  </main>
+</body>
+</html>

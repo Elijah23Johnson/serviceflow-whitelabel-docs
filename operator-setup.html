@@ -31,9 +31,15 @@
   <main>
     <h1>Operator setup</h1>
     <p>For platform operators only. Customer end-users do not need this.</p>
+    <h2>GCP project (ServiceFlow only)</h2>
+    <p>White-label + SF AI Change Platform run in GCP project <code>streaminglive-633c1</code>. Do <strong>not</strong> use <code>aspen-flight-ops</code> for ServiceFlow.</p>
+    <ul>
+      <li>Cloud Run: <a href="https://console.cloud.google.com/run?project=streaminglive-633c1">streaminglive-633c1 / Cloud Run</a></li>
+      <li>Secret Manager: <a href="https://console.cloud.google.com/security/secret-manager?project=streaminglive-633c1">streaminglive-633c1 / Secret Manager</a></li>
+    </ul>
     <h2>Private template</h2>
-    <p>The generate-from-template source repo is <strong>private</strong>. Set AI Change Platform env:</p>
-    <pre>SF_TEMPLATE_REPO=&lt;your-github-user-or-org&gt;/serviceflow-whitelabel-template</pre>
+    <p>The generate-from-template source repo is <strong>private</strong>. Set AI Change Platform env on the <strong>ServiceFlow</strong> ACP Cloud Run services:</p>
+    <pre>SF_TEMPLATE_REPO=Elijah23Johnson/serviceflow-whitelabel-template</pre>
     <h2>Checklist</h2>
     <ol>
       <li>Mark the private template repo as a GitHub Template repository.</li>

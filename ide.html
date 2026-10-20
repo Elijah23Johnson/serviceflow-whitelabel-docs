@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IDE — ServiceFlow White-Label Docs</title>
+  <style>
+    :root { --bg: #0f1419; --panel: #1a2332; --text: #e7ecf3; --muted: #9aa8bc; --accent: #3b82f6; --border: #2a3548; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.55; }
+    header { border-bottom: 1px solid var(--border); padding: 1.25rem 1.5rem; background: var(--panel); }
+    header a { color: var(--accent); text-decoration: none; margin-right: 1rem; }
+    main { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+    h1, h2, h3 { line-height: 1.25; }
+    h1 { font-size: 1.85rem; margin-top: 0; }
+    h2 { font-size: 1.25rem; margin-top: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 0.35rem; }
+    h3 { font-size: 1.05rem; margin-top: 1.5rem; }
+    p, li { color: var(--muted); }
+    a { color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    th, td { border: 1px solid var(--border); padding: 0.55rem 0.7rem; text-align: left; vertical-align: top; }
+    th { background: var(--panel); color: var(--text); }
+    code { background: var(--panel); padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.92em; }
+    pre { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem 1rem; overflow-x: auto; color: var(--muted); }
+    pre code { padding: 0; background: transparent; }
+    .note { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem 1rem; margin: 1rem 0; color: var(--muted); }
+    .note strong { color: var(--text); }
+    nav.toc a { display: inline-block; margin: 0.25rem 0.75rem 0.25rem 0; }
+    ul, ol { padding-left: 1.25rem; }
+
+  </style>
+</head>
+<body>
+  <header>
+    <strong>ServiceFlow White-Label</strong>
+    <nav style="margin-top:0.5rem">
+      <a href="./">Overview</a>
+      <a href="./branding.html">Branding</a>
+      <a href="./deployment.html">Deployment</a>
+      <a href="./ide.html">IDE</a>
+      <a href="./operator-setup.html">Operator setup</a>
+      <a href="https://github.com/Elijah23Johnson/serviceflow-whitelabel-docs">GitHub</a>
+    </nav>
+
+  </header>
+  <main>
+
+    <h1>ServiceFlow Pro IDE</h1>
+    <p>Optional local path for white-label tenants. Complements <strong>AI Change Studio</strong> (cloud agents).</p>
+    <h2>What it is</h2>
+    <p>A branded VS Code OSS build that:</p>
+    <ol>
+      <li>Signs in with device auth against AI Change Platform.</li>
+      <li>Clones the business’s private <code>serviceflow-wl-*</code> repo.</li>
+      <li>Writes a local <code>.env</code> from the bootstrap/env bundle.</li>
+      <li>Runs <strong>API + Web</strong> via committed <code>.vscode</code> launch/tasks.</li>
+    </ol>
+    <h2>Customer flow</h2>
+    <ol>
+      <li>ServiceFlow → Settings → Integrations → White-label AI Change → <strong>Download ServiceFlow Pro IDE</strong> (or Open in IDE).</li>
+      <li>Install for your platform (macOS arm64/x64, Windows).</li>
+      <li>Sign in from the IDE sidebar; approve the device code in the browser.</li>
+      <li>Run <strong>ServiceFlow: Open My Code</strong>, then <strong>Run and Debug → API + Web</strong>.</li>
+    </ol>
+    <p>Installers resolve via ServiceFlow API <code>/api/white-label-ai-change/ide-download</code> (GCS bucket default <code>serviceflow-pro-ide-downloads</code>).</p>
+
+  </main>
+</body>
+</html>

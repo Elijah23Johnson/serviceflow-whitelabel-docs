@@ -1,15 +1,20 @@
 # ServiceFlow White-Label — Public Docs
 
-This repository contains **public documentation** for the ServiceFlow white-label product and AI Change pipeline.
+Public documentation for **White-label Light** (White-label AI Change): private tenant repos, custom domain, AI Change Studio, and ServiceFlow Pro IDE.
 
 The **template source code** lives in a separate **private** repository and is not published here.
 
 ## Docs
 
 - [Overview](docs/overview.md) — how white-label + AI Change works
-- [Branding](docs/branding.md) — env-driven brand hooks
-- [Deployment](docs/deployment.md) — `develop` / `master` deploy contract
-- [Operator setup](docs/operator-setup.md) — GitHub Apps, secrets, provisioning (for platform operators)
+- [Branding](docs/branding.md) — env-driven brand hooks and tenant API bake
+- [Deployment](docs/deployment.md) — `develop` / `master` deploy, four-host domains, secrets
+- [ServiceFlow Pro IDE](docs/ide.md) — local code-oss path
+- [Operator setup](docs/operator-setup.md) — GitHub Apps, secrets, provisioning (platform operators)
+
+## Pages site
+
+Static HTML mirrors these docs (GitHub Pages): `index.html`, `branding.html`, `deployment.html`, `ide.html`, `operator-setup.html`.
 
 ## Branch contract
 
